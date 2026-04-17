@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mvvm_bloc_0021/viewmodel/userbloc.dart';
+import 'package:mvvm_bloc_0021/viewmodel/userevent.dart';
+import 'package:mvvm_bloc_0021/viewmodel/userstate.dart';
 
 class HomePage extends StatelessWidget {
 	const HomePage({super.key});
@@ -10,7 +14,14 @@ class HomePage extends StatelessWidget {
 			body: Padding(
 				padding: EdgeInsets.all(16),
 				child: Column(
-					children: [],
+					children: [
+						TextField(
+							decoration: InputDecoration(labelText: 'Masukkan Nama'),
+							onChanged: (value) {
+								context.read<UserBloc>().add(NamaChanged(value));
+							},
+						),
+					],
 				),
 			),
 		);
