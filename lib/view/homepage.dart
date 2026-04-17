@@ -21,6 +21,12 @@ class HomePage extends StatelessWidget {
 								context.read<UserBloc>().add(NamaChanged(value));
 							},
 						),
+						TextField(
+							decoration: InputDecoration(labelText: 'Masukkan Email'),
+							onChanged: (value) {
+								context.read<UserBloc>().add(EmailChanged(value));
+							},
+						),
 					],
 				),
 			),
